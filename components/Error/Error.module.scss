@@ -1,0 +1,17 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    background: $secondary7;
+    height: rem(800);
+    padding-top: rem(108);
+    color: $neutral;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media all and (max-width: $medium) {
+        height: rem(400);
+        padding-top: rem(56);
+    }
+}

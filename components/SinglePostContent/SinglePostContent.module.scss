@@ -1,0 +1,22 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.SinglePostContent {
+    max-width: rem(800);
+    margin: 0 auto;
+    padding: rem(80) rem(24);
+    h1 {
+        font-weight: 700;
+        font-size: rem(40);
+        text-align: center;
+        margin: rem(80) 0 rem(32);
+    }
+}
+
+.backToArchive {
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    margin-top: rem(80);
+    text-transform: capitalize;
+}

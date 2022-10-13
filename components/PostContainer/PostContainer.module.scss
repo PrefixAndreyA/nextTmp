@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+.PostContainer {
+    max-width: rem(1200);
+    margin: 0 auto;
+    padding: rem(80) rem(24);
+}
+
+.postArchiveItem {
+    margin-bottom: rem(80);
+    display: flex;
+    align-items: center;
+    & > div {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+    @media all and (max-width: $large) {
+        display: block;
+    }
+}
+
+.imageContainer {
+    margin-right: rem(24);
+    @media all and (max-width: $large) {
+        margin-right: 0;
+        margin-bottom: rem(40);
+    }
+}
+
+.readPost {
+    font-weight: 700;
+}

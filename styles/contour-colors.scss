@@ -1,0 +1,20 @@
+@import "variables.scss";
+
+$primary2: lighten(desaturate(adjust-hue($primary, -5), 43.89), 19.22);
+$primary3: lighten(desaturate(adjust-hue($primary, -5), 53.03), 36.27);
+$primary4: lighten(desaturate(adjust-hue($primary, -4), 53.23), 53.73);
+$primary5: lighten(desaturate(adjust-hue($primary, -14), 53.86), 70.59);
+
+$secondary2: lighten(desaturate($secondary, 0.22), 17.84);
+$secondary3: lighten(desaturate(adjust-hue($secondary, 2), 5.27), 26.86);
+$secondary4: lighten(desaturate(adjust-hue($secondary, 2), 5.26), 35.49);
+$secondary5: lighten(desaturate(adjust-hue($secondary, 1), 4.53), 44.51);
+$secondary6: lighten(desaturate(adjust-hue($secondary, 1), 2.33), 52.94);
+$secondary7: lighten(desaturate(adjust-hue($secondary, -2), 0.75), 57.65);
+
+$neutral1: lighten(saturate(adjust-hue($neutral, 300), 0.95), 20.59);
+$neutral2: lighten(saturate($neutral, 0.49), 40.2);
+$neutral3: lighten(saturate(adjust-hue($neutral, 60), 0.49), 59.8);
+$neutral4: lighten($neutral, 80);
+$neutral5: lighten($neutral, 95.29);
+$neutral6: lighten($neutral, 100);

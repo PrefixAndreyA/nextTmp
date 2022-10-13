@@ -1,0 +1,11 @@
+/** @type {import('next-sitemap').IConfig} */
+
+/**
+ * Configuration Options: https://www.npmjs.com/package/next-sitemap#configuration-options
+ * Sample Blog Post: https://medium.com/wesionary-team/how-to-implement-sitemap-in-next-js-using-next-sitemap-77ca7bb56544
+ */
+module.exports = {
+    siteUrl: process.env.SITE_URL || 'https://cakestudy.kzstage.com/wordpress',
+    generateRobotsTxt: true,
+    exclude: ['/sitemap.xml'], // <= exclude here
+};

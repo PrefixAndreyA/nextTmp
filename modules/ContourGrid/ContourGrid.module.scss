@@ -1,0 +1,23 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.buttonContainer {
+    text-align: center;
+    padding-bottom: rem(80);
+}
+
+.title {
+    text-align: center;
+    color: $primary2;
+    margin-top: rem(104);
+    margin-bottom: rem(-80);
+    text-transform: uppercase;
+}
+
+.bigTitle {
+    text-align: center;
+    color: $primary;
+    margin-top: rem(104);
+    margin-bottom: rem(-40);
+}

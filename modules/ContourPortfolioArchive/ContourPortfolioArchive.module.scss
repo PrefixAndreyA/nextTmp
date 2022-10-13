@@ -1,0 +1,191 @@
+@use "sass:math";
+@import "../../styles/functions.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    background: $neutral6;
+    padding: rem(88) 0;
+    &.extraBottomPadding {
+        padding-bottom: calc(rem(88) + rem(96));
+    }
+    &.darkBackground {
+        background: $primary;
+        .title {
+            color: $neutral6;
+        }
+        .copy {
+            color: $primary4;
+        }
+    }
+    > div:nth-child(odd) {
+        .single {
+            &:first-of-type {
+                grid-column-start: 1;
+                grid-column-end: 5;
+            }
+            &:last-of-type {
+                grid-column-start: 5;
+                grid-column-end: 13;
+            }
+        }
+    }
+    .flex {
+        max-width: rem(1360);
+    }
+    @media all and (max-width: $large) {
+        padding: rem(56) 0;
+        &.extraBottomPadding {
+            padding-bottom: calc(rem(56) + rem(96));
+        }
+        .flex {
+            display: flex !important;
+            flex-direction: column;
+            &:first-of-type {
+                flex-direction: column-reverse;
+            }
+            > div {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.imageContainer {
+    height: rem(512);
+    margin-bottom: $column-gap;
+    position: relative;
+    @media all and (max-width: $medium) {
+        height: rem(256);
+    }
+}
+
+.infoContainer {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    background: rgba($primary, 0);
+    transition: all 0.4s;
+    @include hover-supported() {
+        &:hover {
+            background: rgba($primary, 0.64);
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.88;
+                @include scrimGradient(
+                    $startColor: $secondary2,
+                    $direction: "-360deg"
+                );
+                animation: gradient-animation 12s linear infinite;
+                @keyframes gradient-animation {
+                    @for $i from 360 to -1 {
+                        $ndeg: "-" + $i + "deg";
+                        #{(math.div(360 - $i, 360)) * 100%} {
+                            @include scrimGradient(
+                                $startColor: $secondary2,
+                                $direction: -#{$i}deg
+                            );
+                        }
+                    }
+                }
+            }
+            .developmentInfo {
+                background: transparent;
+            }
+            &:hover {
+                .triangles {
+                    opacity: 0;
+                }
+                .trianglesHover {
+                    opacity: 1;
+                }
+            }
+            .triangle {
+                border-left-color: $neutral6;
+            }
+        }
+    }
+}
+
+.developmentInfo {
+    @include scrimGradient($startColor: rgba($neutral, 0), $direction: "0deg");
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: $neutral6;
+    padding: rem(56);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 4s;
+    @media all and (max-width: $medium) {
+        padding: rem(24);
+    }
+}
+
+.contentContainer {
+    margin-bottom: rem(40);
+    padding: 0 rem(64);
+    @media all and (max-width: $large) {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    @media all and (max-width: $medium) {
+        button {
+            width: 100%;
+        }
+    }
+    @media all and (max-width: $large) {
+        margin-bottom: rem(56);
+    }
+}
+
+.eyebrow {
+    color: $secondary;
+    margin-bottom: rem(24);
+}
+
+.title {
+    color: $primary;
+    font-size: rem(48);
+    line-height: calc(56 / 48);
+    font-weight: 700;
+    font-family: $serif;
+    margin-bottom: rem(24);
+}
+
+.subtitle {
+    margin-bottom: rem(12);
+}
+
+.copy {
+    color: $primary2;
+}
+
+.single {
+    &:first-of-type {
+        grid-column-start: 1;
+        grid-column-end: 7;
+    }
+    &:last-of-type {
+        grid-column-start: 7;
+        grid-column-end: 13;
+    }
+}

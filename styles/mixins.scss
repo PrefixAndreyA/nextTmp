@@ -1,0 +1,102 @@
+@import "variables.scss";
+@import "functions.scss";
+@import "contour-colors.scss";
+
+@mixin scrimGradient($startColor: $color-black, $direction: "to bottom") {
+    $scrimCoordinates: (
+        0: 1,
+        19: 0.738,
+        34: 0.541,
+        47: 0.382,
+        56.5: 0.278,
+        65: 0.194,
+        73: 0.126,
+        80.2: 0.075,
+        86.1: 0.042,
+        91: 0.021,
+        95.2: 0.008,
+        98.2: 0.002,
+        100: 0,
+    );
+
+    $hue: hue($startColor);
+    $saturation: saturation($startColor);
+    $lightness: lightness($startColor);
+    $stops: ();
+
+    @each $colorStop, $alphaValue in $scrimCoordinates {
+        $stop: hsla($hue, $saturation, $lightness, $alphaValue)
+            percentage(math.div($colorStop, 100));
+        $stops: append($stops, $stop, comma);
+    }
+
+    background: linear-gradient(unquote($direction), $stops);
+}
+
+@mixin hover-supported {
+    @media not all and (pointer: coarse) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin title-margins {
+    margin-top: rem(80);
+    margin-bottom: rem(24);
+}
+
+@mixin title1 {
+    font-size: rem(72);
+    line-height: calc(80 / 72);
+    font-family: $serif;
+    font-weight: 700;
+    @media all and (max-width: $medium) {
+        font-size: rem(48);
+        line-height: calc(56 / 48);
+    }
+}
+
+@mixin title2 {
+    font-family: $serif;
+    font-weight: 700;
+    font-size: rem(48);
+    line-height: calc(56 / 48);
+    letter-spacing: rem(0.4);
+    @media all and (max-width: $medium) {
+        font-size: rem(40);
+        line-height: calc(48 / 40);
+    }
+}
+
+@mixin title3 {
+    font-family: $serif;
+    font-size: rem(36);
+    line-height: 1;
+    font-weight: 700;
+    @media all and (max-width: $medium) {
+        font-size: rem(28);
+        line-height: calc(32 / 28);
+    }
+}
+
+@mixin title4 {
+    font-family: $serif;
+    font-size: rem(24);
+    line-height: 1;
+    font-weight: 700;
+}
+
+@mixin title5 {
+    font-family: $serif;
+    font-size: rem(24);
+    line-height: calc(32 / 24);
+}
+
+@mixin title6 {
+    font-family: $sans-serif;
+    font-size: rem(16);
+    line-height: 1;
+    letter-spacing: rem(2);
+    font-weight: 700;
+}

@@ -1,0 +1,128 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    background: $secondary7;
+}
+
+.carousel {
+    grid-column-start: 3;
+    grid-column-end: 11;
+    overflow: hidden;
+    cursor: grab;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+
+    @media all and (max-width: $medium) {
+        margin-top: rem(0);
+        grid-column-start: 2;
+        grid-column-end: 12;
+    }
+}
+
+.grid {
+    @media all and (max-width: $medium) {
+        padding: 0 !important;
+    }
+    position: relative;
+}
+
+.slide {
+    min-height: rem(472);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: rem(120) 0 rem(84);
+    background-color: $secondary7;
+
+    @media all and (max-width: $medium) {
+        min-height: rem(320);
+        padding-top: rem(40);
+    }
+}
+
+.text {
+    color: $primary;
+    @media all and (max-width: $xlarge) {
+        font-size: rem(32);
+    }
+}
+
+.label {
+    color: $secondary;
+}
+
+.swiperPagination {
+    position: absolute;
+    top: rem(56);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $serif;
+    font-size: rem(18);
+    padding: rem(8) rem(16);
+    display: flex;
+    align-items: center;
+    color: rgba($secondary, 0.5);
+    z-index: 1;
+
+    @media all and (max-width: $medium) {
+        bottom: rem(16);
+        top: auto;
+    }
+}
+
+
+.swiperPrev,
+.swiperNext {
+    border: rem(24) solid transparent;
+    width: 0;
+    height: 0;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    @media all and (max-width: $xlarge) {
+        border: rem(16) solid transparent;
+    }
+
+    @media all and (max-width: $medium) {
+        top: auto;
+        bottom: rem(12);
+    }
+}
+
+.swiperPrev {
+    border-right-color: $primary;
+    left: 0;
+    @media all and (max-width: $medium) {
+        left: rem(16);
+    }
+}
+
+.swiperNext {
+    border-left-color: $primary;
+    right: 0;
+    @media all and (max-width: $medium) {
+        right: rem(16);
+    }
+}
+
+.slash {
+    width: rem(1);
+    height: rem(24);
+    background: rgba($secondary, 0.5);
+    padding: 0 !important;
+    position: relative;
+    bottom: rem(1);
+    transform: rotate(30deg);
+    margin: 0 rem(4);
+}

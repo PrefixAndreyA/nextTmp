@@ -1,0 +1,94 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.featuredIntroText {
+    background: linear-gradient(180deg, $neutral 0%, $primary 64%);
+    color: $neutral6;
+    font-family: $sans-serif;
+    padding: rem(120) 0 rem(120);
+    text-align: center;
+    @media all and (max-width: $xlarge) {
+        padding-bottom: rem(64);
+    }
+    &.extraBottomPadding {
+        padding-bottom: calc(rem(120) + rem(96));
+        @media all and (max-width: $xlarge) {
+            padding-bottom: calc(rem(64) + rem(96));
+        }
+    }
+    &.lightBackground {
+        background: $neutral6;
+        .title {
+            color: $primary;
+        }
+        .copy {
+            color: $primary2;
+        }
+    }
+    @media all and (max-width: $medium) {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.content {
+    @media all and (max-width: $medium) {
+        grid-column-start: 1 !important;
+        grid-column-end: 13 !important;
+    }
+}
+
+.eyebrow {
+    color: $secondary2;
+}
+
+.copy {
+    color: $primary5;
+}
+
+.numbers {
+    margin-top: rem(104);
+    display: flex;
+    @media all and (max-width: $xlarge) {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: rem(56);
+    }
+}
+
+.numberContainer {
+    width: calc(100% / 3);
+    padding: 0 rem(40);
+    @media all and (max-width: $xlarge) {
+        width: 50%;
+        margin-bottom: rem(40);
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    @media all and (max-width: $medium) {
+        width: 100%;
+        margin-bottom: rem(40);
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.number {
+    color: $secondary;
+    font-size: rem(96);
+    line-height: 1;
+    font-weight: 700;
+    font-family: $serif;
+    margin-bottom: rem(16);
+    @media all and (max-width: $medium) {
+        font-size: rem(64);
+    }
+}
+
+.label {
+    color: $primary3;
+}

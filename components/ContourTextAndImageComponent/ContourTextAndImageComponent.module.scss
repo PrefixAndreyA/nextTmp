@@ -1,0 +1,94 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.fullBackground {
+    background: $secondary7;
+    &.darkBackground {
+        background: linear-gradient(180deg, $neutral 0%, $primary 64%);
+        .title {
+            color: $neutral6;
+        }
+        .subtitle {
+            color: $secondary;
+        }
+        .copy {
+            color: $primary4;
+        }
+    }
+}
+
+.container {
+    padding: 0 !important;
+    @media all and (max-width: $large) {
+        display: flex !important;
+        flex-direction: column-reverse;
+        &.imageOnLeft {
+            flex-direction: column;
+        }
+    }
+    @media all and (min-width: $xlarge) {
+        display: flex !important;
+        justify-content: flex-end;
+        max-width: none !important;
+        &.imageOnLeft {
+            justify-content: flex-start;
+        }
+    }
+    &.extraBottomPadding {
+        padding-bottom: rem(96) !important;
+    }
+}
+
+.imageContainer {
+    transform: translateY(rem(-96));
+    @media all and (max-width: $large) {
+        margin: 0 rem(24);
+    }
+    @media all and (min-width: $xlarge) {
+        width: calc(
+            (7 * (($grid-width - (13 * $column-gap)) / 12) + 7 * $column-gap) +
+                ((100% - $grid-width) / 2)
+        );
+    }
+    @media all and (max-width: $large) {
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+}
+
+.contentContainer {
+    padding: rem(120) rem(64) rem(120) $column-gap;
+    @media all and (max-width: $large) {
+        padding-top: 0;
+        padding-bottom: rem(64);
+    }
+    @media all and (min-width: $xlarge) {
+        width: calc(
+            (5 * (($grid-width - (13 * $column-gap)) / 12) + 5 * $column-gap)
+        );
+    }
+    @media all and (max-width: $large) {
+        padding-right: $column-gap;
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+    @media all and (max-width: $medium) {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.eyebrow {
+    color: $secondary;
+}
+
+.title {
+    margin-bottom: rem(8);
+}
+
+.copy {
+    color: $secondary;
+}

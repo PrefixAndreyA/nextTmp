@@ -1,0 +1,45 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.card {
+    border-radius: rem(24);
+    overflow: hidden;
+    .cardContent {
+        padding: rem(24);
+        max-height: rem(600);
+        overflow: auto;
+        @media all and (max-width: $medium) {
+            max-height: none;
+        }
+        &::-webkit-scrollbar {
+            width: rem(8);
+        }
+        &::-webkit-scrollbar-track {
+            background: rgba(white, 0.56);
+        }
+        &::-webkit-scrollbar-thumb {
+            background: rgba(black, 0.24);
+        }
+    }
+    h2 {
+        font-size: rem(32);
+        margin-bottom: rem(16);
+        opacity: 0.56;
+    }
+    p {
+        font-size: rem(16);
+        line-height: 1.2;
+        margin-bottom: rem(24);
+        opacity: 0.8;
+    }
+    ul {
+        font-size: rem(16);
+        li {
+            background: rgba(white, 0.56);
+            border-radius: rem(16);
+            line-height: 1.6;
+            margin-bottom: rem(8);
+            padding: rem(8) rem(16);
+        }
+    }
+}

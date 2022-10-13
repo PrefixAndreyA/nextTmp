@@ -1,0 +1,25 @@
+@import "functions.scss";
+
+$root-size: 16;
+$grid-width: rem(calc(1120 + 64));
+$column-gap: rem(32);
+
+// breakpoints
+$small: 480px;
+$medium: 768px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+// typography
+
+$serif: "Cardo", serif;
+$sans-serif: "Montserrat", sans-serif;
+
+// colors
+
+$primary: #0c1933;
+$secondary: #856d3d;
+$neutral: #000000;
+$error: #c92a07;
+$white: #ffffff;

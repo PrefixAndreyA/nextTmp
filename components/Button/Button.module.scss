@@ -1,0 +1,62 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/contour-colors.scss";
+
+.button {
+    background: transparent;
+    border: rem(1) solid $neutral6;
+    margin-top: rem(40);
+    text-transform: uppercase;
+    padding: 0;
+    a {
+        color: $neutral6;
+        font-family: $sans-serif;
+        font-weight: 700;
+        font-size: rem(12);
+        line-height: rem(12);
+        letter-spacing: rem(1);
+        padding: rem(24) rem(32);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    &.dark {
+        border: rem(1) solid $primary;
+        a {
+            color: $primary;
+        }
+    }
+    &.fill {
+        background: $neutral6;
+        a {
+            color: $primary;
+        }
+    }
+    &.fill.dark {
+        background: $primary;
+        a {
+            color: $neutral6;
+        }
+    }
+    &.noMargin {
+        margin-top: 0;
+    }
+    .triangles {
+        margin-left: rem(12);
+    }
+    .trianglesHover {
+        margin-left: rem(12);
+    }
+    @include hover-supported() {
+        &:hover {
+            .triangles {
+                opacity: 0;
+            }
+            .trianglesHover {
+                opacity: 1;
+            }
+        }
+    }
+}

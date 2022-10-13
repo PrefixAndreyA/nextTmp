@@ -1,0 +1,54 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.accordionContainer {
+    margin: rem(48) 0;
+    color: black;
+}
+
+.accordionSection {
+    border-top: rem(1) solid black;
+    &:last-of-type {
+        border-bottom: rem(1) solid black;
+    }
+    &.open {
+        .accordionDrawer {
+            height: auto;
+        }
+        .accordionTitle {
+            &:after {
+                transform: rotate(90deg);
+                top: calc(50% - rem(4));
+                right: rem(4);
+            }
+        }
+    }
+}
+
+.accordionTitle {
+    padding: rem(24) rem(32) rem(24) 0;
+    cursor: pointer;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 0;
+        height: 0;
+        border: rem(8) solid transparent;
+        border-left-color: black;
+        transition: all 0.24s;
+    }
+}
+
+.accordionDrawer {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.accordionDrawerHeight {
+    padding-bottom: rem(40);
+}

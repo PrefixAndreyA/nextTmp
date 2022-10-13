@@ -1,0 +1,8 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.layout {
+    max-width: rem(1920);
+    margin: 0 auto;
+    background: #fff;
+}

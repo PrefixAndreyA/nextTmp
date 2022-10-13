@@ -1,0 +1,26 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.container {
+    padding-top: rem(120) !important;
+    padding-bottom: rem(120) !important;
+    @media all and (max-width: $large) {
+        padding-top: rem(80) !important;
+        padding-bottom: rem(80) !important;
+        .left,
+        .right {
+            grid-column-start: 1;
+            grid-column-end: 13;
+        }
+        .right {
+            button {
+                display: none;
+            }
+        }
+    }
+    @media all and (max-width: $medium) {
+        button {
+            width: 100%;
+        }
+    }
+}

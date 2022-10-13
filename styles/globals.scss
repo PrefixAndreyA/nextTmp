@@ -1,0 +1,496 @@
+@import "variables.scss";
+@import "functions.scss";
+@import "mixins.scss";
+@import "contour-colors.scss";
+
+html {
+    font-size: $root-size + px;
+}
+
+body {
+    background: #fff;
+    color: $neutral;
+    font-family: $sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link {
+    color: $primary;
+    transition: color 200ms ease-in-out;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+p {
+    font-size: rem(16);
+    line-height: 1.6;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+div[class*=" grid-"],
+div[class^="grid-"] {
+    display: grid;
+    column-gap: $column-gap;
+    max-width: $grid-width;
+    margin: 0 auto;
+    padding: 0 $column-gap;
+    @media all and (max-width: $small) {
+        column-gap: rem(24);
+        padding: 0 rem(24);
+    }
+}
+
+@for $i from 1 through 12 {
+    .grid-#{$i} {
+        grid-template-columns: repeat(#{$i}, [col-start] 1fr);
+    }
+}
+
+@for $i from 1 through 12 {
+    .col-start-#{$i} {
+        grid-column-start: #{$i};
+    }
+}
+
+@for $i from 1 through 12 {
+    .col-end-#{$i} {
+        grid-column-end: #{$i + 1};
+    }
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        margin-top: 0;
+    }
+}
+
+// Global Typography Styles
+
+.title1 {
+    @include title1;
+    margin-bottom: rem(24);
+}
+
+.title2 {
+    @include title2;
+    margin-bottom: rem(24);
+}
+
+.title3 {
+    @include title3;
+    margin-bottom: rem(8);
+}
+
+.title4 {
+    @include title4;
+}
+
+.title5 {
+    @include title5;
+    margin-bottom: rem(8);
+}
+
+.title6 {
+    @include title6;
+}
+
+.body-small {
+    font-size: rem(16);
+    line-height: calc(28 / 16);
+    font-family: $sans-serif;
+}
+
+.body-medium {
+    font-size: rem(18);
+    line-height: calc(32 / 18);
+    font-family: $sans-serif;
+}
+
+.body-large {
+    font-family: $serif;
+    font-size: rem(16);
+    line-height: calc(18 / 16);
+}
+
+.body-extra-large {
+    font-family: $serif;
+    font-size: rem(18);
+    line-height: calc(24 / 18);
+    margin-bottom: rem(32);
+    color: $neutral;
+}
+
+.label-small {
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: calc(12 / 8);
+    letter-spacing: rem(2);
+    margin-bottom: rem(24);
+    text-transform: uppercase;
+    font-family: $sans-serif;
+}
+
+.label-large {
+    text-transform: uppercase;
+    font-family: $sans-serif;
+    font-weight: 700;
+    font-size: rem(12);
+    line-height: 1;
+    letter-spacing: rem(1);
+}
+
+.arc-wysiwyg {
+    color: $primary2;
+    > :first-child {
+        margin-top: 0;
+    }
+    h1 {
+        color: $primary;
+        @include title1;
+        @include title-margins;
+    }
+
+    h2 {
+        color: $primary;
+        @include title2;
+        @include title-margins;
+    }
+
+    h3 {
+        color: $primary;
+        @include title3;
+        @include title-margins;
+    }
+
+    h4 {
+        color: $primary;
+        @include title4;
+        @include title-margins;
+    }
+
+    h5 {
+        color: $primary;
+        @include title5;
+        @include title-margins;
+    }
+
+    h6 {
+        color: $primary;
+        @include title6;
+        @include title-margins;
+    }
+
+    ul {
+        font-size: rem(16);
+        line-height: calc(28 / 16);
+        font-family: $sans-serif;
+        padding-left: rem(24);
+        list-style-type: disc;
+        margin-bottom: rem(24);
+        li {
+            margin-bottom: rem(16);
+        }
+        ul {
+            list-style-type: circle;
+            margin-bottom: rem(0);
+            li {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    p {
+        font-size: rem(18);
+        line-height: calc(32 / 18);
+        font-family: $sans-serif;
+        margin-top: 0;
+        margin-bottom: rem(24);
+    }
+
+    b,
+    strong {
+        font-weight: 700;
+    }
+
+    a {
+        font-weight: 700;
+        text-decoration: underline;
+        color: inherit;
+
+        @extend .link;
+    }
+
+    // Turn off styles from keyboard shortcuts
+
+    span,
+    del {
+        font-weight: inherit !important;
+        text-decoration: none !important;
+    }
+
+    i {
+        font-style: normal !important;
+    }
+
+    * {
+        text-align: left !important;
+    }
+}
+
+.swiper-text-pagination {
+    .swiper-pagination-current,
+    .swiper-pagination-total {
+        font-size: rem(18);
+        padding: rem(8);
+        display: inline-block;
+    }
+
+    .swiper-pagination-current {
+        color: $secondary;
+    }
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(rem-calc(1), rem-calc(1), rem-calc(1), rem-calc(1));
+    clip-path: inset(50%);
+    height: rem-calc(1);
+    margin: rem-calc(-1);
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: rem-calc(1);
+    word-wrap: normal !important;
+}
+
+.button--no-style {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+// styles for mobile menu
+.mobile-menu {
+    li.menu-item {
+        &--has-submenu {
+            position: static;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            @extend .link-underline;
+            @extend .link-underline--75;
+            @extend .link-underline--white;
+        }
+    }
+
+    .submenu {
+        position: absolute;
+        width: 100%;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-top: 7.5rem;
+        // padding-bottom: 152px;
+        background: $primary;
+        transition: transform 500ms ease-in-out;
+        transform: translateX(100%);
+
+        &--show {
+            transform: translateX(0);
+        }
+
+        &__arrow {
+            border: rem(8) solid transparent;
+            display: block;
+            width: 0;
+            height: 0;
+            cursor: pointer;
+            border-left-color: $white;
+
+            @media (min-width: 1201px) {
+                display: none;
+            }
+
+            &--point-left {
+                border-right-color: $white;
+                border-left-color: transparent;
+                border-width: rem(5);
+                margin-right: 0.75rem;
+            }
+        }
+
+        &__button {
+            padding: 0.5rem;
+
+            @extend .link-underline;
+            @extend .link-underline--white;
+
+            &--back {
+                display: flex;
+                font-weight: 700;
+                font-size: 10px;
+                align-items: center;
+                width: calc(100% - 3rem);
+                margin: 1rem 1.5rem 1.5rem;
+                border-bottom: 1px solid #424e5f;
+                padding-left: 0;
+                padding-bottom: 1.5rem;
+            }
+        }
+
+        &__button-text {
+            text-transform: uppercase;
+            color: $white;
+            letter-spacing: 0.1em;
+        }
+
+        &__list {
+        }
+
+        &__menu-item {
+        }
+
+        // to overwrite styles
+        a.submenu__link {
+            text-transform: none;
+            font-weight: 500;
+            padding: 1rem 0.5rem;
+            letter-spacing: normal;
+            line-height: 1.075;
+
+            @extend .link-underline;
+            @extend .link-underline--75;
+            @extend .link-underline--white;
+        }
+    }
+}
+
+.main-menu {
+    > .menu-item > a {
+        @extend .link-underline;
+    }
+
+    .submenu {
+        &__link {
+            @extend .link;
+        }
+    }
+
+    .menu-dark & {
+        > .menu-item > a {
+            @extend .link-underline--white;
+        }
+    }
+}
+
+.menu-2 {
+    .menu-item {
+        a {
+            @extend .link-underline;
+        }
+
+        &:last-of-type {
+            &:hover {
+                a {
+                    background-color: $primary;
+                    color: $white;
+
+                    span:after {
+                        max-width: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-dark & {
+        .menu-item {
+            a {
+                @extend .link-underline--white;
+            }
+
+            &:last-of-type {
+                &:hover {
+                    a {
+                        background-color: $white;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.link-underline {
+    > span {
+        position: relative;
+
+        &:after {
+            display: block;
+            content: " ";
+            position: absolute;
+            max-width: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #0c1933;
+            transition: max-width 200ms ease-in-out;
+            bottom: -0.4em;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+
+        span:after {
+            max-width: 100%;
+        }
+    }
+
+    &--75 {
+        &:hover,
+        &:focus {
+            span:after {
+                max-width: 75%;
+            }
+        }
+    }
+
+    &--white {
+        > span {
+            &:after {
+                background-color: $white;
+            }
+        }
+    }
+}

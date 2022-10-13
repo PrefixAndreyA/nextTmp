@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+@import "../../styles/functions.scss";
+
+.container {
+    display: grid;
+    column-gap: $column-gap;
+    row-gap: $column-gap;
+    margin: 0 auto;
+    padding: rem(40);
+    grid-template-columns: repeat(5, [col-start] 1fr);
+    @media all and (max-width: $xxlarge) {
+        grid-template-columns: repeat(4, [col-start] 1fr);
+    }
+    @media all and (max-width: $xlarge) {
+        grid-template-columns: repeat(3, [col-start] 1fr);
+    }
+    @media all and (max-width: $large) {
+        grid-template-columns: repeat(2, [col-start] 1fr);
+    }
+    @media all and (max-width: $medium) {
+        grid-template-columns: repeat(1, [col-start] 1fr);
+    }
+}

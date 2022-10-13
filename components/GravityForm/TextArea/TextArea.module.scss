@@ -1,0 +1,43 @@
+@import "../../../styles/functions.scss";
+@import "../../../styles/variables.scss";
+
+.formElementContainer {
+    position: relative;
+    margin-bottom: rem(24);
+    margin-top: rem(40);
+    label {
+        letter-spacing: rem(0.4);
+    }
+}
+
+.textArea {
+    display: block;
+    margin-top: rem(8);
+    border: rem(1) solid $primary;
+    width: 100%;
+    font-size: rem(16);
+    padding: rem(8);
+    &:focus {
+        outline: none;
+        border: rem(1) dashed $primary;
+    }
+}
+
+.errorContainer {
+    margin-bottom: rem(48);
+    textarea {
+        background: $error;
+        color: white;
+    }
+    label {
+        color: $error;
+        left: rem(8);
+    }
+    .error {
+        margin-top: rem(8);
+        color: $error;
+        position: absolute;
+        left: 0;
+        bottom: rem(-24);
+    }
+}

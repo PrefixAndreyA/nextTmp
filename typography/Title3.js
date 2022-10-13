@@ -1,0 +1,28 @@
+import React from "react";
+
+const Title3 = (props) => {
+    if (props.titleValue) {
+        const Title = `h${props.titleValue}`;
+        return (
+            <Title
+                className={`title3 ${
+                    props.overwriteStyle ? props.overwriteStyle : ""
+                }`}
+            >
+                {props.children}
+            </Title>
+        );
+    } else {
+        return (
+            <div
+                className={`title3 ${
+                    props.overwriteStyle ? props.overwriteStyle : ""
+                }`}
+            >
+                {props.children}
+            </div>
+        );
+    }
+};
+
+export default Title3;

@@ -1,0 +1,33 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.coloredBG {
+    background: $secondary7;
+    * {
+        color: $secondary;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $neutral;
+    }
+}
+
+.container {
+    padding-top: rem(120) !important;
+    padding-bottom: rem(120) !important;
+    @media all and (max-width: $large) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+    }
+    @media all and (max-width: $medium) {
+        padding-top: rem(80) !important;
+        padding-bottom: rem(80) !important;
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+}

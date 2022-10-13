@@ -1,0 +1,81 @@
+@import "../../../styles/functions.scss";
+@import "../../../styles/variables.scss";
+@import "../../../styles/contour-colors.scss";
+
+.formElementContainer {
+    position: relative;
+    margin-bottom: rem(40);
+    label {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        transition: all 0.4s;
+        pointer-events: none;
+        letter-spacing: rem(0.4);
+    }
+}
+
+.textInput {
+    border: none;
+    width: 100%;
+    height: rem(60);
+    border-bottom: rem(1) solid $primary;
+    font-size: rem(16);
+    background: transparent;
+    transition: all 0.24s;
+    &:focus {
+        outline: none;
+        border: rem(1) dashed $primary;
+        border-bottom: rem(1) solid $primary;
+        padding: 0 rem(8);
+        + label {
+            top: rem(-16);
+            transform: translateY(0);
+            left: 0;
+        }
+    }
+}
+
+.notEmpty {
+    label {
+        top: rem(-16);
+        transform: translateY(0);
+        left: 0;
+    }
+}
+
+.incomplete {
+    input {
+        + label {
+            color: $error;
+            left: 0;
+        }
+    }
+}
+
+.errorContainer {
+    input {
+        background: $error;
+        border-color: $error;
+        color: white;
+        padding: 0 rem(8);
+        &:focus {
+            + label {
+                color: $error;
+            }
+        }
+    }
+    label {
+        color: $error;
+        top: rem(-16);
+        transform: translateY(0);
+        left: 0;
+    }
+    .error {
+        color: $error;
+        position: absolute;
+        left: 0;
+        bottom: rem(-16);
+    }
+}

@@ -1,0 +1,39 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    padding: rem(216) 0 rem(144);
+    background: $secondary7;
+    @media all and (max-width: $medium) {
+        padding: rem(144) 0 rem(72);
+    }
+}
+
+.column {
+    @media all and (max-width: $large) {
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+}
+
+.title {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    margin-bottom: rem(16);
+}
+
+.subtitle {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    margin-bottom: rem(0);
+}
+
+.extraBottomPadding {
+    padding-bottom: rem(448);
+    @media all and (max-width: $medium) {
+        padding-bottom: rem(72);
+    }
+}

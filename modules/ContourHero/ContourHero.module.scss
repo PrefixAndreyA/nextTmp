@@ -1,0 +1,75 @@
+@use "sass:math";
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+@import "../../styles/mixins.scss";
+
+.hero {
+    color: $neutral6;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border: rem(40) solid transparent;
+        border-top: rem(40) solid $primary;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &.hasGoldArrow {
+        &:after {
+            border-top: rem(40) solid $secondary2;
+        }
+    }
+    &.hasNoArrow {
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.gradient {
+    padding: rem(280) 0 rem(80);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgba($primary, 0.88);
+    &.extraBottomPadding {
+        padding-bottom: calc(rem(80) + rem(96));
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.72;
+        @include scrimGradient($startColor: $secondary2, $direction: "-360deg");
+        animation: gradient-animation 24s linear infinite;
+        @keyframes gradient-animation {
+            @for $i from 360 to -1 {
+                $ndeg: "-" + $i + "deg";
+                #{(math.div(360 - $i, 360)) * 100%} {
+                    @include scrimGradient(
+                        $startColor: $secondary2,
+                        $direction: -#{$i}deg
+                    );
+                }
+            }
+        }
+    }
+    @media all and (max-width: $medium) {
+        padding-top: rem(120) !important;
+    }
+}
+
+.content {
+    position: relative;
+    @media all and (max-width: $medium) {
+        display: block !important;
+        button {
+            width: 100%;
+        }
+    }
+}

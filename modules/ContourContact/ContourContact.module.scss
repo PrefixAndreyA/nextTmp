@@ -1,0 +1,66 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    padding: rem(96) 0 !important;
+    @media all and (max-width: $medium) {
+        padding: rem(64) 0 rem(40) !important;
+    }
+}
+
+.formContainer {
+    font-family: $sans-serif;
+    font-size: rem(12);
+    line-height: 1;
+    font-weight: 700;
+    color: $primary;
+    text-transform: uppercase;
+    input,
+    select,
+    textarea {
+        font-family: $serif;
+        font-size: rem(18);
+    }
+    @media all and (max-width: $medium) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+    }
+    button[type="submit"] {
+        background: $primary;
+        border: rem(1) solid $primary;
+        margin-top: rem(24);
+        text-transform: uppercase;
+        color: $neutral6;
+        font-family: $sans-serif;
+        font-weight: 700;
+        font-size: rem(12);
+        line-height: rem(12);
+        letter-spacing: rem(1);
+        padding: rem(24) rem(32);
+        display: inline-block;
+        cursor: pointer;
+    }
+}
+
+.contentContainer {
+    a {
+        color: $primary;
+        text-decoration: underline;
+    }
+    @media all and (max-width: $medium) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        margin-top: rem(80);
+    }
+}
+
+.title {
+    margin-bottom: rem(48);
+    text-transform: none;
+}
+
+.sideTitle {
+    color: $secondary;
+    margin-bottom: rem(8);
+}

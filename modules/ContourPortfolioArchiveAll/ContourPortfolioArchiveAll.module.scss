@@ -1,0 +1,61 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/contour-colors.scss";
+
+.tagFilter {
+    margin-bottom: rem(200) !important;
+    border-bottom: rem(1) solid $primary5;
+    display: block !important;
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    padding: 0 !important;
+    @media all and (max-width: $large) {
+        margin-bottom: rem(128) !important;
+    }
+}
+
+.scrollableContent {
+    display: flex !important;
+    justify-content: center;
+    padding-right: rem(24);
+    @media all and (max-width: $large) {
+        justify-content: flex-start;
+    }
+}
+
+.filterButton {
+    padding: rem(24);
+    color: $primary4;
+    cursor: pointer;
+    transition: all 0.24s;
+    display: inline-flex;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        left: rem(24);
+        width: 0;
+        height: rem(2);
+        background: $primary;
+        bottom: rem(16);
+        transition: all 0.24s;
+    }
+    @include hover-supported() {
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.activeFilter {
+    color: $primary;
+    &:after {
+        width: calc(100% - rem(48));
+    }
+}
+
+.secondSection {
+    margin-top: rem(120) !important;
+}

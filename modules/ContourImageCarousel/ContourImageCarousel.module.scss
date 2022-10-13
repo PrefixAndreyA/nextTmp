@@ -1,0 +1,94 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.carousel {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    overflow: hidden;
+    margin-top: rem(-400);
+    height: rem(720);
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+
+    @media all and (max-width: $medium) {
+        margin-top: rem(0);
+    }
+}
+
+.grid {
+    @media all and (max-width: $medium) {
+        padding: 0 !important;
+        margin-bottom: rem(70) !important;
+    }
+    position: relative;
+}
+
+.slide {
+    height: rem(720);
+    width: 100%;
+    @media all and (max-width: $medium) {
+        height: rem(360);
+    }
+}
+
+.swiperControls {
+    background: rgba($neutral6, 0.96);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: rem(8) rem(16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+
+    @media all and (max-width: $medium) {
+        width: 100%;
+        justify-content: space-between;
+        background: $neutral6;
+    }
+
+    .slash {
+        width: rem(1);
+        height: rem(24);
+        background: $primary5;
+        padding: 0 !important;
+        position: relative;
+        bottom: rem(-6);
+        transform: rotate(30deg);
+        margin: 0 rem(4);
+    }
+}
+
+.swiperPagination {
+    font-size: rem(18);
+    color: $primary;
+    padding: rem(8);
+    display: inline-block;
+}
+
+.swiperPrev,
+.swiperNext {
+    border: rem(8) solid transparent;
+    width: 0;
+    height: 0;
+    padding: 0;
+    position: relative;
+    top: rem(-1);
+    cursor: pointer;
+}
+
+.swiperPrev {
+    border-right-color: $primary;
+    margin-right: rem(16);
+}
+
+.swiperNext {
+    border-left-color: $primary;
+    margin-left: rem(16);
+}

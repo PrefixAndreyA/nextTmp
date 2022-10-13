@@ -1,0 +1,28 @@
+@import "../../../styles/functions.scss";
+@import "../../../styles/variables.scss";
+
+.formElementContainer {
+    position: relative;
+    margin-top: rem(40);
+    margin-bottom: rem(24);
+    input {
+        margin-right: rem(24);
+    }
+    .error {
+        margin-top: rem(8);
+        display: block;
+    }
+    label {
+        letter-spacing: rem(0.4);
+    }
+}
+
+.errorContainer {
+    label {
+        color: $error;
+    }
+    .error {
+        color: $error;
+        position: absolute;
+    }
+}

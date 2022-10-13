@@ -1,0 +1,109 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/contour-colors.scss";
+
+.trianglesContainer {
+    position: relative;
+    margin-left: rem(4);
+    margin-right: rem(-8);
+}
+
+.triangles,
+.trianglesHover {
+    display: inline-flex;
+    transition: opacity 0.6s;
+}
+
+.triangles {
+    .triangle1 {
+        opacity: 0.4;
+    }
+    .triangle2 {
+        opacity: 0.6;
+    }
+    .triangle3 {
+        opacity: 1;
+    }
+}
+
+.trianglesHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    .triangle1 {
+        animation: triangle1hover 1.2s linear infinite;
+    }
+    .triangle2 {
+        animation: triangle2hover 1.2s linear infinite;
+    }
+    .triangle3 {
+        animation: triangle3hover 1.2s linear infinite;
+    }
+}
+
+.triangle1,
+.triangle2,
+.triangle3 {
+    height: 0;
+    width: 0;
+    border: rem(8) solid transparent;
+    border-left-color: $secondary2;
+    transition: border-left-color 0.4s;
+    display: inline-block;
+    margin-left: rem(-4);
+}
+
+@keyframes triangle1hover {
+    0% {
+        opacity: 0.4;
+    }
+    25% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+@keyframes triangle2hover {
+    0% {
+        opacity: 0.6;
+    }
+    25% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+@keyframes triangle3hover {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    75% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}

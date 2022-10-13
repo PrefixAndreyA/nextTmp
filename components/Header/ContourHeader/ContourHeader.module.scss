@@ -1,0 +1,274 @@
+@import "../../../styles/functions.scss";
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/contour-colors.scss";
+
+.header {
+    padding: rem(24);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    max-width: rem(1920);
+    z-index: 2;
+    &.light {
+        .lightOverlay {
+            bottom: 0;
+        }
+        .logoLight {
+            opacity: 0;
+        }
+        .logoDark {
+            opacity: 1;
+        }
+        a {
+            color: $primary;
+        }
+    }
+    &.dark {
+        .logoLight {
+            opacity: 0;
+        }
+        .logoDark {
+            opacity: 1;
+        }
+        a {
+            color: $primary;
+        }
+    }
+    .lightOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: $neutral6;
+        transition: all 0.24s;
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+        margin: 0 rem(400);
+
+        @media (min-width: $xlarge) {
+            ul {
+                position: absolute;
+                background: $neutral6;
+                flex-direction: column;
+                margin: 0;
+                left: 50%;
+                transform: translate(-50%);
+                padding: rem(24) rem(8) rem(16);
+                display: none;
+                box-shadow: rem(2) 0 rem(12) 0 rgba($neutral3, 0.3);
+                a {
+                    color: $primary;
+                    text-transform: none;
+                    font-size: rem(12);
+                    line-height: 1;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    padding: rem(8) rem(16);
+                    width: 100%;
+                    margin-bottom: rem(8);
+                }
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border: rem(8) solid transparent;
+                    border-bottom: rem(8) solid $neutral6;
+                    position: absolute;
+                    top: rem(-16);
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+            }
+        }
+
+        li {
+            margin: 0 rem(16);
+            position: relative;
+            @include hover-supported() {
+                &:hover {
+                    ul {
+                        display: flex;
+                    }
+                }
+            }
+
+            @media (min-width: $xlarge) {
+                button {
+                    display: none;
+                }
+            }
+        }
+        a {
+            color: $neutral6;
+            padding: rem(24) rem(8);
+            font-family: $sans-serif;
+            text-transform: uppercase;
+            font-size: rem(12);
+            line-height: rem(12);
+            letter-spacing: rem(1);
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.24s;
+        }
+    }
+    .logoPositioner {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .logoLight {
+        opacity: 1;
+        transition: opacity 0.24s;
+    }
+    .logoDark {
+        opacity: 0;
+        transition: opacity 0.24s;
+    }
+    .hamburgerContainer {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: rem(16);
+        display: none;
+    }
+    .mobileMenuContainer {
+        display: none;
+    }
+    .menu2 {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: rem(24);
+        li:last-of-type {
+            border: rem(1) solid $neutral6;
+        }
+        a {
+            padding-left: rem(24);
+            padding-right: rem(24);
+            font-size: rem(10);
+        }
+    }
+
+    &.light,
+    &.dark {
+        .menu2 {
+            li:last-of-type {
+                border: rem(1) solid $primary;
+            }
+        }
+    }
+    .mobileMenu2 {
+        padding-top: 0 !important;
+        align-items: flex-start;
+
+        li:first-of-type > a {
+            font-size: rem(10);
+        }
+
+        li:last-of-type {
+            border: rem(1) solid $neutral6;
+            transition: all 200ms ease-in-out;
+
+            a {
+                padding-left: rem(24);
+                padding-right: rem(24);
+
+                &:hover,
+                &focus {
+                    background: $white;
+                    color: $primary;
+
+                    span:after {
+                        max-width: 0;
+                    }
+                }
+            }
+        }
+    }
+    .mobileMenu {
+        + .mobileMenu2 {
+            margin-top: rem(80) !important;
+        }
+    }
+    // .mainMenu {
+    //     visibility: hidden;
+    // }
+}
+
+// Put all code related to switching to the mobile menu here, so we can change the breakpoint easily
+
+@media all and (max-width: $xlarge) {
+    .header {
+        height: 92px;
+        padding: rem(16);
+        .hamburgerContainer {
+            display: block;
+        }
+        .mainMenu {
+            display: none;
+        }
+        .menu2 {
+            display: none;
+        }
+        .mobileMenuContainer {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 100%;
+            width: 100%;
+            height: 100%;
+            background: $primary;
+            transition: all 0.56s ease;
+            padding-top: rem(120);
+            ul {
+                flex-direction: column;
+                margin: 0;
+                // &.mobileMenu {
+                //     display: none;
+                // }
+                li {
+                    // @include hover-supported() {
+                    //     &:hover {
+                    //         ul {
+                    //             display: none;
+                    //         }
+                    //     }
+                    // }
+                }
+                a {
+                    font-size: rem(16);
+                    color: $neutral6;
+                }
+            }
+        }
+        &.open {
+            .mobileMenuContainer {
+                left: 0;
+            }
+            &.light,
+            &.dark {
+                .logoLight {
+                    opacity: 1;
+                    transition-delay: 0.24s;
+                }
+                .logoDark {
+                    opacity: 0;
+                    transition-delay: 0.24s;
+                }
+                a {
+                    color: $neutral6;
+                }
+            }
+            &.light {
+                .lightOverlay {
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

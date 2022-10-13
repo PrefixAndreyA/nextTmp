@@ -1,0 +1,67 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    padding-top: rem(80) !important;
+    padding-bottom: rem(80) !important;
+    @media all and (max-width: $medium) {
+        display: flex !important;
+        flex-direction: column;
+        padding-top: rem(40) !important;
+        padding-bottom: rem(40) !important;
+    }
+}
+
+.content {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        right: calc(-100% / 12 - rem(12));
+        width: rem(1);
+        height: 100%;
+        top: 0;
+        background-color: $primary5;
+        @media all and (max-width: $medium) {
+            display: none;
+        }
+    }
+    @media all and (max-width: $medium) {
+        margin-bottom: rem(40);
+    }
+}
+
+.copy {
+    p {
+        margin-top: 0;
+        color: $primary;
+    }
+}
+
+.label {
+    color: $secondary;
+    margin-bottom: rem(8);
+}
+
+.list {
+    color: $primary;
+    margin-bottom: 0;
+    a {
+        color: $primary;
+        text-decoration: underline;
+    }
+}
+
+.listSection {
+    margin-top: rem(40);
+    margin-bottom: rem(8);
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.lineItem {
+    margin: 0;
+}

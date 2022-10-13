@@ -1,0 +1,21 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    padding: rem(72) 0;
+    @media all and (max-width: $large) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+    }
+    @media all and (max-width: $medium) {
+        grid-column-start: 1;
+        grid-column-end: 13;
+    }
+}
+
+.title {
+    text-align: center;
+    color: $primary;
+    margin-bottom: rem(72);
+}

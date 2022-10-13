@@ -1,0 +1,43 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/contour-colors.scss";
+
+.container {
+    margin-top: rem(80) !important;
+    margin-bottom: rem(80) !important;
+    > div {
+        margin-bottom: rem(72);
+    }
+    a {
+        color: $secondary;
+        text-transform: uppercase;
+        border-bottom: rem(1) solid $secondary;
+        font-size: rem(12);
+        font-weight: 700;
+        font-family: $sans-serif;
+        padding-bottom: rem(4);
+        letter-spacing: rem(1);
+    }
+}
+
+.title {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    margin-bottom: rem(56);
+    color: $primary;
+}
+
+.memberTitle {
+    margin-bottom: rem(8);
+}
+
+.subtitle {
+    color: $secondary;
+    margin-bottom: rem(16);
+}
+
+.content {
+    color: $primary2;
+    margin-bottom: rem(24);
+}

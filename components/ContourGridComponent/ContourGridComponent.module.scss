@@ -1,0 +1,12 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+
+.gridThirds {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: rem(120) !important;
+    margin-bottom: rem(40) !important;
+    @media all and (max-width: $large) {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+}

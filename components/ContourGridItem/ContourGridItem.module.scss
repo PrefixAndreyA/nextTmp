@@ -1,0 +1,50 @@
+@import "../../styles/functions.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/contour-colors.scss";
+
+.linkContainer {
+    margin-bottom: rem(56);
+}
+
+.gridImage {
+    height: rem(256);
+    position: relative;
+    &.square {
+        aspect-ratio: 1;
+        height: auto;
+    }
+}
+
+.title {
+    color: $primary;
+    margin-top: rem(24);
+}
+
+.subtitle {
+    color: $primary2;
+    margin-top: rem(8);
+}
+
+.link {
+    color: $secondary;
+    text-transform: uppercase;
+    border-bottom: rem(1) solid $secondary;
+    font-family: $sans-serif;
+    font-weight: 700;
+    font-size: rem(12);
+    margin-top: rem(24);
+    padding-bottom: rem(4);
+    display: inline-block;
+    letter-spacing: rem(1);
+}
+
+.eyebrow {
+    color: $secondary;
+    margin-top: rem(24);
+    margin-bottom: rem(16);
+}
+
+.content {
+    margin-top: rem(16);
+}
